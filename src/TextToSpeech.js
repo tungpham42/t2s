@@ -7,6 +7,7 @@ import {
   faUndo,
   faDownload,
 } from "@fortawesome/free-solid-svg-icons";
+import LocaleConverter from "./LocaleConverter";
 
 const TextToSpeech = () => {
   const [text, setText] = useState("");
@@ -174,7 +175,7 @@ const TextToSpeech = () => {
                 <option value="">Select a language</option>
                 {languages.map((lang, index) => (
                   <option key={index} value={lang}>
-                    {lang}
+                    <LocaleConverter localeCode={lang} />
                   </option>
                 ))}
               </Form.Control>
