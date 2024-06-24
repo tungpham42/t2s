@@ -70,7 +70,7 @@ const TextToSpeech = () => {
       };
 
       mediaRecorderRef.current.onstop = () => {
-        const blob = new Blob(audioChunksRef.current, { type: "audio/mpeg" });
+        const blob = new Blob(audioChunksRef.current, { type: "audio/webm" });
         const url = URL.createObjectURL(blob);
         setAudioBlob(blob);
         setAudioURL(url);
@@ -139,7 +139,7 @@ const TextToSpeech = () => {
     const a = document.createElement("a");
     a.style.display = "none";
     a.href = url;
-    a.download = "speech.mp3";
+    a.download = "speech.webm";
     document.body.appendChild(a);
     a.click();
     URL.revokeObjectURL(url);
@@ -217,7 +217,7 @@ const TextToSpeech = () => {
                 className="ms-3"
                 onClick={downloadAudio}
               >
-                <FontAwesomeIcon icon={faDownload} /> Download MP3
+                <FontAwesomeIcon icon={faDownload} /> Download WEBM
               </Button>
             )}
             <Button variant="secondary" className="ms-3" onClick={handleReset}>
