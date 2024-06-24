@@ -210,20 +210,22 @@ const TextToSpeech = () => {
                   <FontAwesomeIcon icon={faPlay} /> Speak
                 </>
               )}
-            </Button>{" "}
-            <Button variant="secondary" onClick={handleReset}>
+            </Button>
+            {audioURL && (
+              <Button
+                variant="success"
+                className="ms-3"
+                onClick={downloadAudio}
+              >
+                <FontAwesomeIcon icon={faDownload} /> Download MP3
+              </Button>
+            )}
+            <Button variant="secondary" className="ms-3" onClick={handleReset}>
               <FontAwesomeIcon icon={faUndo} /> Reset
             </Button>
             {audioURL && (
               <div className="mt-3">
                 <audio controls src={audioURL}></audio>
-                <Button
-                  variant="success"
-                  className="ml-3"
-                  onClick={downloadAudio}
-                >
-                  <FontAwesomeIcon icon={faDownload} /> Download MP3
-                </Button>
               </div>
             )}
           </Form>
