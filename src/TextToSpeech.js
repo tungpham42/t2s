@@ -157,8 +157,9 @@ const TextToSpeech = () => {
           <h1 className="mb-4">Text to Speech</h1>
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Enter Text:</Form.Label>
+              <Form.Label htmlFor="enterText">Enter Text:</Form.Label>
               <Form.Control
+                id="enterText"
                 as="textarea"
                 rows={5}
                 value={text}
@@ -166,8 +167,9 @@ const TextToSpeech = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Select Language:</Form.Label>
+              <Form.Label htmlFor="selectLang">Select Language:</Form.Label>
               <Form.Control
+                id="selectLang"
                 as="select"
                 value={selectedLanguage}
                 onChange={handleLanguageChange}
@@ -182,8 +184,9 @@ const TextToSpeech = () => {
             </Form.Group>
             {selectedLanguage && (
               <Form.Group className="mb-3">
-                <Form.Label>Select Voice:</Form.Label>
+                <Form.Label htmlFor="selectVoice">Select Voice:</Form.Label>
                 <Form.Control
+                  id="selectVoice"
                   as="select"
                   value={selectedVoice?.name || ""}
                   onChange={handleVoiceChange}
