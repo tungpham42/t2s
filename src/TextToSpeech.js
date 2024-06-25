@@ -8,6 +8,7 @@ import {
   faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 import LocaleConverter from "./LocaleConverter";
+import getLanguageName from "./getLanguageName";
 
 const TextToSpeech = () => {
   const [text, setText] = useState("");
@@ -34,7 +35,11 @@ const TextToSpeech = () => {
 
       const uniqueLanguages = [
         ...new Set(voices.map((voice) => voice.lang)),
-      ].sort((a, b) => a.localeCompare(b));
+      ].sort((langCode1, langCode2) => {
+        const name1 = getLanguageName({ localeCode: langCode1 });
+        const name2 = getLanguageName({ localeCode: langCode2 });
+        return name1.localeCompare(name2);
+      });
       setLanguages(uniqueLanguages);
     };
 
