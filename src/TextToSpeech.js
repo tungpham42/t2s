@@ -172,9 +172,8 @@ const TextToSpeech = () => {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label htmlFor="selectLang">Select Language:</Form.Label>
-              <Form.Control
+              <Form.Select
                 id="selectLang"
-                as="select"
                 value={selectedLanguage}
                 onChange={handleLanguageChange}
               >
@@ -184,14 +183,13 @@ const TextToSpeech = () => {
                     {getLanguageName({ localeCode: lang })}
                   </option>
                 ))}
-              </Form.Control>
+              </Form.Select>
             </Form.Group>
             {selectedLanguage && (
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="selectVoice">Select Voice:</Form.Label>
-                <Form.Control
+                <Form.Select
                   id="selectVoice"
-                  as="select"
                   value={selectedVoice?.name || ""}
                   onChange={handleVoiceChange}
                 >
@@ -201,7 +199,7 @@ const TextToSpeech = () => {
                       {voice.name} ({voice.lang})
                     </option>
                   ))}
-                </Form.Control>
+                </Form.Select>
               </Form.Group>
             )}
             <Button variant="primary" onClick={handleSpeak}>
